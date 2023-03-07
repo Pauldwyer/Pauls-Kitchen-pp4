@@ -10,7 +10,7 @@ class CustomUser(AbstractUser):
     pass
     # add additional fields in here
     username = models.CharField(max_length=255, unique=True)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(max_length=254, unique=True)
     password = models.CharField(max_length=255)
 
     def __str__(self):
@@ -19,8 +19,8 @@ class CustomUser(AbstractUser):
 
 # Comments table
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    name = models.CharField(max_length=80)
+    post = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
@@ -30,14 +30,14 @@ class Comment(models.Model):
 
 # Recipe table
 class Recipe(models.Model):
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    published_on = models.DateTimeField()
+    published_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     image = CloudinaryField('image', default='placeholder')
-    ingredients = models.ManyToManyField('Ingredient')
-    preparation_steps = models.ManyToManyField('PreparationStep')
+    ingredients = models.ManyToManyField('Ingredient', related_name='recipes')
+    preparation_steps = models.ManyToManyField('PreparationStep', related_name='recipes')
 
     class Meta:
         """
@@ -50,7 +50,7 @@ class Recipe(models.Model):
 
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
@@ -63,13 +63,9 @@ class PreparationStep(models.Model):
         return self.description
 
 
-class Like(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    port = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('recipe', 'user')
+class Likes(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.user} likes {self.post}'

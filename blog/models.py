@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -15,17 +16,6 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
-
-
-# Comments table
-class Comment(models.Model):
-    post = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'{self.name} on {self.post}'
 
 
 # Recipe table
@@ -47,6 +37,16 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Comment by {self.author.username} on {self.post.title}'
 
 
 class Ingredient(models.Model):

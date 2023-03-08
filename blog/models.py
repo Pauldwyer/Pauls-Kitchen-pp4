@@ -24,10 +24,10 @@ class Recipe(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     published_on = models.DateTimeField(auto_now_add=True)
-    description = models.TextField()
+    description = models.TextField(max_length=1000)
+    ingredients = models.TextField(null=True)
+    preparation_steps = models.TextField(null=True)
     image = CloudinaryField('image', default='placeholder')
-    ingredients = models.ManyToManyField('Ingredient', related_name='recipes')
-    preparation_steps = models.ManyToManyField('PreparationStep', related_name='recipes')
 
     class Meta:
         """
@@ -43,24 +43,11 @@ class Comment(models.Model):
     post = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     body = models.TextField()
+    approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'Comment by {self.author.username} on {self.post.title}'
-
-
-class Ingredient(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
-
-
-class PreparationStep(models.Model):
-    description = models.TextField()
-
-    def __str__(self):
-        return self.description
 
 
 class Likes(models.Model):

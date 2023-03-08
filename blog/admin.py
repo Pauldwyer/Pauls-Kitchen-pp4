@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser, Recipe, Comment, Ingredient, PreparationStep, Likes
+from .models import CustomUser, Recipe, Comment, Likes
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -35,6 +35,3 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
-
-
-# Register your models here.

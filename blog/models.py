@@ -28,6 +28,7 @@ class Recipe(models.Model):
     ingredients = models.TextField(null=True)
     preparation_steps = models.TextField(null=True)
     image = CloudinaryField('image', default='placeholder')
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         """

@@ -23,6 +23,17 @@ class RecipeAdmin(SummernoteModelAdmin):
     summernote_fields = ('description')
 
 
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('author', 'body', 'post', 'created_on')
+    list_filter = ('created_on',)
+    search_fields = ('author', 'email', 'body')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
+
+
 admin.site.register(CustomUser, CustomUserAdmin)
 
 

@@ -20,7 +20,7 @@ class CustomUser(AbstractUser):
 
 # Recipe table
 class Recipe(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     published_on = models.DateTimeField(auto_now_add=True)
@@ -41,7 +41,7 @@ class Recipe(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -52,7 +52,7 @@ class Comment(models.Model):
 
 class Likes(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.user} likes {self.post}'

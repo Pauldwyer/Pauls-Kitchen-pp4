@@ -16,6 +16,10 @@ class CustomUserAdmin(UserAdmin):
 @admin.register(Recipe)
 class RecipeAdmin(SummernoteModelAdmin):
 
+    list_display = ('title', 'slug', 'published_on')
+    search_fields = ['title', 'description']
+    prepopulated_fields = {'slug': ('title',)}
+    list_filter = ('title', 'published_on')
     summernote_fields = ('description')
 
 

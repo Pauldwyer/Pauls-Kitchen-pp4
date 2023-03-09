@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100"> 
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}"><h2>Pauls Kitchen</h2></a>
@@ -27,11 +27,14 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'recipe_list' %}">Recipes</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -40,6 +43,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                 </li>
+                
                 {% endif %}
             </ul>
             <span class="navbar-text text-muted">
@@ -53,7 +57,11 @@
     {% endblock %}
   </main>
 </body>
-<footer>
-  
+<footer class="footer mt-auto py-3 dark-bg">
+  <p class="m-0 text-center text-white">Made by Code Paul Dwyer</p>
+  <p class="m-0 text-center text-white">Follow me: <i class="fab fa-facebook-square ms-3"></i>
+      <i class="fab fa-twitter-square ms-3"></i>
+      <i class="fab fa-instagram-square ms-3"></i>
+      <i class="fab fa-youtube-square ms-3"></i></p>
 </footer>
 </html>

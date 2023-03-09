@@ -7,10 +7,15 @@ from .forms import CustomUserCreationForm
 from .models import Recipe
 
 
+class HomeView(View):
+    def get(self, request):
+        return render(request, 'home.html')
+
+
 class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-published_on')
-    template_name = 'home.html'
+    template_name = 'recipe_list.html'
     paginate_by = 6
 
 

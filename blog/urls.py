@@ -5,6 +5,6 @@ from .views import SignUpView
 
 urlpatterns = [
     path('', views.RecipeList.as_view(), name='home'),
-    path('<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'),
     path("signup/", SignUpView.as_view(), name="signup"),
+    path('<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'),
 ]

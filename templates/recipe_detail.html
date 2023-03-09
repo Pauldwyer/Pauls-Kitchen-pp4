@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Receipe Details{% endblock %}
+
+{% block content %}
+
+<!-- RECIPE HEAD  -->
+<div class="container">
+    <div class="row no-gutters recipe-card-head mt-2">
+       <div class="col-md-6 my-auto">
+          <h1 class="recipe-title text-light"> {{ recipe.title }}</h1>
+          <p class="recipe-subtitle mb-3 mb-lg-0">by {{ recipe.author }} | <em>{{ recipe.published_on }}</em></p>
+       </div>
+       <div class="d-md-block col-lg-6 recipe-card-head-img">
+          {% if "placeholder" in recipe.image.url %}
+          <img src="#" alt="Oranges" class="card-img-top img-fit">
+          {% else %}
+          <img class="card-img-top img-fit" src=" {{ recipe.image.url }}" alt="{{ recipe.title}}">
+          {% endif %}
+       </div>
+    </div>
+ </div>
+ <!-- END OF RECIPE HEAD -->
+ <!-- MAIN RECIPE CONTENT -->
+ <div class="container">
+    <div class="row">
+       <div class="col border-0 card mb-4 mt-3 recipes-content-body">
+          <div class="card-body px-0">
+             <p>{{ recipe.description|striptags }}</p>
+             <hr />
+             <h3>Ingredients:</h3>
+             <p class="card-text ">{{ recipe.ingredients | safe }} </p>
+             <hr />
+             <h3>Preparation Steps:</h3>
+             <p class="card-text ">{{ recipe.preparation_steps | safe }}</p>
+             <hr />
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- END OF MAIN RECIPE CONTENT -->
+
+{% endblock %}

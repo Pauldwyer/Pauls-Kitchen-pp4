@@ -4,8 +4,6 @@ from django.db import models
 from django.conf import settings
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
 
 class CustomUser(AbstractUser):
     pass
@@ -28,7 +26,6 @@ class Recipe(models.Model):
     ingredients = models.TextField(null=True)
     preparation_steps = models.TextField(null=True)
     image = CloudinaryField('image', default='placeholder')
-    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         """

@@ -13,7 +13,7 @@ class HomeView(View):
 
 class RecipeList(generic.ListView):
     model = Recipe
-    queryset = Recipe.objects.filter(status=1).order_by('-published_on')
+    queryset = Recipe.objects.filter().order_by('-published_on')
     template_name = 'recipe_list.html'
     paginate_by = 6
 
@@ -21,7 +21,6 @@ class RecipeList(generic.ListView):
 class RecipeDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
         liked = False

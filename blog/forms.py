@@ -1,7 +1,7 @@
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, Recipe
+from .models import CustomUser, Recipe, Comment
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -27,3 +27,9 @@ class RecipeForm(forms.ModelForm):
             'ingredients': SummernoteWidget(),
             'preparation_steps': SummernoteWidget(),
         }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)

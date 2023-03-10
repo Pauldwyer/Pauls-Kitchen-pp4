@@ -2,8 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.views import generic, View
-
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, RecipeForm
 from .models import Recipe
 
 
@@ -38,6 +37,18 @@ class RecipeDetail(View):
                 "liked": liked
             }
         )
+
+
+class AddRecipeView(CreateView):
+    model = Recipe
+    form_class = RecipeForm
+    template_name = 'add_recipe.html'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.slug = form.instance.title.lower().replace(' ', '-')
+        return super().form_valid(form)
 
 
 class SignUpView(CreateView):

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Recipe List{% endblock %}
+
+{% block content %}
+
+<!--
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> |
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+-->
+
+<h2>Add Recipe</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+
+
+{% endblock %}

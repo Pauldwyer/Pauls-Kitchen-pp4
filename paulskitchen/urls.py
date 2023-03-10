@@ -18,8 +18,8 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
-    path("", include('blog.urls'), name="blog_urls"),
     path('admin/', admin.site.urls),
+    path("", include('blog.urls'), name="blog_urls"),
     path("blog/", include("django.contrib.auth.urls")),
     path("accounts/", include("allauth.urls")),
     path('summernote/', include('django_summernote.urls')),

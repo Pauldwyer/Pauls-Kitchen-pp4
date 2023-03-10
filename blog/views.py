@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.views import generic, View
-from .forms import CustomUserCreationForm, RecipeForm
+from .forms import CustomUserCreationForm, RecipeForm, CommentForm
 from .models import Recipe
 
 
@@ -34,7 +34,8 @@ class RecipeDetail(View):
             {
                 "recipe": recipe,
                 "comments": comments,
-                "liked": liked
+                "liked": liked,
+                "comment_form": CommentForm()
             }
         )
 
@@ -55,4 +56,3 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
-

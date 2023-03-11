@@ -21,7 +21,7 @@ class RecipeList(generic.ListView):
 class RecipeDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        recipe = get_object_or_404(queryset, slug=slug)
+        recipe = get_object_or_404(Recipe, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
         liked = False
         # if recipe.likes.filter(id=self.request.user.id).exists():

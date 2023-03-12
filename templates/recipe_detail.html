@@ -38,16 +38,22 @@
                 <p>There are no comments yet.</p>
                 {% endfor %}
             </div>
+            {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+            {% else %}
             {% if user.is_authenticated %}
             <div class="my-4">
                 <h2>Leave a Comment:</h2>
                 <p>Posting as: {{ user.username }}</p>
-                <form method="post">
+                <form method="post" class="my-4">
                     {% csrf_token %}
                     {{ comment_form | crispy }}
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
+            {% endif %}
             {% endif %}
         </div>
         <div class="col-lg-4">

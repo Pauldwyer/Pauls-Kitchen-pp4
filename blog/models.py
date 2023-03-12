@@ -5,9 +5,9 @@ from django.conf import settings
 from cloudinary.models import CloudinaryField
 
 
+# Custom User Model
 class CustomUser(AbstractUser):
     pass
-    # add additional fields in here
     username = models.CharField(max_length=255, unique=True)
     email = models.EmailField(max_length=254, unique=True)
     password = models.CharField(max_length=255)
@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
         return self.username
 
 
-# Recipe table
+# Recipe Model
 class Recipe(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
@@ -36,7 +36,7 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
-
+# Comments Model
 class Comment(models.Model):
     post = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -47,7 +47,7 @@ class Comment(models.Model):
     def __str__(self):
         return f'Comment by {self.author.username} on {self.post.title}'
 
-
+# Likes Model
 class Likes(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -55,5 +55,3 @@ class Likes(models.Model):
     def __str__(self):
         return f'{self.user} likes {self.post}'
 
-
-# Create your models here.

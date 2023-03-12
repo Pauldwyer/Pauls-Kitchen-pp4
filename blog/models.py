@@ -26,6 +26,7 @@ class Recipe(models.Model):
     ingredients = models.TextField(null=True)
     preparation_steps = models.TextField(null=True)
     image = CloudinaryField('image', default='placeholder')
+    likes = models.ManyToManyField(CustomUser, related_name='liked_recipe')
 
     class Meta:
         """
@@ -35,6 +36,7 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
 
 # Comments Model
 class Comment(models.Model):
@@ -46,12 +48,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.author.username} on {self.post.title}'
-
-# Likes Model
-class Likes(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.user} likes {self.post}'
-

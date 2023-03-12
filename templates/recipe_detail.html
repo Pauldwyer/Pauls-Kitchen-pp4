@@ -2,7 +2,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}Receipe Details{% endblock %}
+{% block title %}Recipe Details{% endblock %}
 
 {% block content %}
 
@@ -60,12 +60,22 @@
             <div class="card my-4">
                 <div class="card-body">
                     <h5 class="card-title">Recipe Details</h5>
-                    <p class="card-text"><strong>Number of Likes:</strong> {{ recipe.number_of_likes }}</p>
-                    <p class="card-text"><strong>Number of Comments:</strong> {{ comments.count }}</p>
+                    <p class="card-text"><strong>Number of Likes:</strong> {{ recipe.likes.count }}</p>
+                    <p class="card-text"><strong>Number of Comments:</strong> {{ recipe.comments.count }}</p>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user in recipe.likes.all %}
+                            <button type="submit" class="btn btn-secondary" disabled>You already liked this recipe</button>
+                        {% else %}
+                            <form method="post" action="{% url 'like_recipe' recipe.slug %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Like</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        </div>
+        </div>
 
 {% endblock %}

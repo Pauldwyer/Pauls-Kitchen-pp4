@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser, Recipe, Comment, Likes
+from .models import CustomUser, Recipe, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 

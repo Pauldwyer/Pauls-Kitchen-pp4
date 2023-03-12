@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-from .views import SignUpView, AddRecipeView, RecipeDetail
+from .views import SignUpView, AddRecipeView, RecipeDetail, RecipeLike
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('recipe_list', views.RecipeList.as_view(), name='recipe_list'),
     path('add_recipe/', AddRecipeView.as_view(), name='add_recipe'),
     path('<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'),
+    path('like/<slug:slug>/', views.RecipeLike.as_view(), name='like_recipe'),
 ]

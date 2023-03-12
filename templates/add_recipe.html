@@ -15,26 +15,33 @@
         </div>
         <div class="form-group">
           <label for="description">Description</label>
-          <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+          {{ form.description }}
         </div>
         <div class="form-group">
           <label for="ingredients">Ingredients</label>
-          <textarea name="ingredients" id="ingredients" class="form-control" rows="5"></textarea>
+          {{ form.ingredients }}
         </div>
         <div class="form-group">
           <label for="preparation_steps">Preparation Steps</label>
-          <textarea name="preparation_steps" id="preparation_steps" class="form-control" rows="7"></textarea>
+          {{ form.preparation_steps }}
         </div>
         <div class="form-group">
           <label for="image">Image</label>
           <input type="file" name="image" id="image" class="form-control-file" required>
         </div>
+        {% if user.is_authenticated %}
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+        {% else %}
+        <div class="form-group">
+          <p>Please <a href="{% url 'account_signup' %}">register</a> to submit.</p>
+        </div>
+        {% endif %}
       </form>
     </div>
   </div>
 </div>
+
 
 {% endblock %}

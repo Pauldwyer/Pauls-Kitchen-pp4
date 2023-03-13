@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
+from django.db.models import Q
 from django.contrib import messages
-from django.views.generic import DetailView
+from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import generic, View
@@ -129,3 +130,21 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
+
+
+class ProfileView(LoginRequiredMixin, DetailView):
+    model = CustomUser
+    template_name = 'my_profile.html'
+    context_object_name = 'user_profile'
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(CustomUser, pk=self.request.user.pk)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        posted_recipes = Recipe.objects.filter(author=user)
+        liked_recipes = Recipe.objects.filter(likes=user).exclude(author=user)
+        context['posted_recipes'] = posted_recipes
+        context['liked_recipes'] = liked_recipes
+        return context

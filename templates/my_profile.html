@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>My Profile</h2>
+  <h3>My Recipes</h3>
+  
+  {% if posted_recipes %}
+    <h4>Posted Recipes</h4>
+    <div class="row">
+      {% for recipe in posted_recipes %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-3">
+            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ recipe.title }}</h5>
+              <p class="card-text">{{ recipe.description|safe }}</p>
+              <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-dark">View Recipe</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <p>You haven't posted any recipes yet.</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if liked_recipes %}
+    <h4>Liked Recipes</h4>
+    <div class="row">
+      {% for recipe in liked_recipes %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-3">
+            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ recipe.title }}</h5>
+              <p class="card-text">{{ recipe.description|safe }}</p>
+              <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-dark">View Recipe</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <p>You haven't liked any recipes yet.</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if not authored_recipes and not liked_recipes %}
+    <p>You haven't posted or liked any recipes yet.</p>
+  {% endif %}
+{% endblock %}
+

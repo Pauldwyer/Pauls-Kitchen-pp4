@@ -34,7 +34,7 @@ class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter().order_by('-published_on')
     template_name = 'recipe_list.html'
-    paginate_by = 6
+    paginate_by = 24
 
 
 class RecipeDetail(View):

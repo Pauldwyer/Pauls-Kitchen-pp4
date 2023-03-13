@@ -14,16 +14,20 @@
             <img src="{% if recipe.image.url != "" %}{{ recipe.image.url }}{% else %}/static/img/placeholder.png{% endif %}"
                 class="img-fluid my-4" alt="{{ recipe.title }}">
             <div class="my-4">
+                {% if request.user == recipe.author %}
+                <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-dark">Edit</a>
+                <a href="{% url 'delete_recipe' recipe.slug %}" class="btn btn-dark">Delete</a>
+                {% endif %}
                 <h2>Description:</h2>
-                <p class="lead">{{ recipe.description }}</p>
+                <p class="lead">{{ recipe.description|safe }}</p>
             </div>
             <div class="my-4">
                 <h2>Ingredients:</h2>
-                <p>{{ recipe.ingredients|linebreaksbr }}</p>
+                <p>{{ recipe.ingredients|linebreaksbr|safe }}</p>
             </div>
             <div class="my-4">
                 <h2>Preparation Steps:</h2>
-                <p>{{ recipe.preparation_steps|linebreaksbr }}</p>
+                <p>{{ recipe.preparation_steps|linebreaksbr|safe }}</p>
             </div>
             <hr>
             <div class="my-4">

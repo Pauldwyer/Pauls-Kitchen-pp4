@@ -39,9 +39,9 @@
                 {% endfor %}
             </div>
             {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
-                </div>
+            <div class="alert alert-success" role="alert">
+                Your comment is awaiting approval
+            </div>
             {% else %}
             {% if user.is_authenticated %}
             <div class="my-4">
@@ -63,19 +63,24 @@
                     <p class="card-text"><strong>Number of Likes:</strong> {{ recipe.likes.count }}</p>
                     <p class="card-text"><strong>Number of Comments:</strong> {{ recipe.comments.count }}</p>
                     {% if request.user.is_authenticated %}
-                        {% if request.user in recipe.likes.all %}
-                            <button type="submit" class="btn btn-secondary" disabled>You already liked this recipe</button>
-                        {% else %}
-                            <form method="post" action="{% url 'like_recipe' recipe.slug %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-primary">Like</button>
-                            </form>
-                        {% endif %}
+                    {% if request.user in recipe.likes.all %}
+                    <form method="post" action="{% url 'like_recipe' recipe.slug %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Unlike</button>
+                    </form>
+                    {% else %}
+                    <form method="post" action="{% url 'like_recipe' recipe.slug %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Like</button>
+                    </form>
+                    {% endif %}
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'account_login' %}">Login to like</a>
                     {% endif %}
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
+</div>
 
 {% endblock %}

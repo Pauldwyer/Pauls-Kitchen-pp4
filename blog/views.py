@@ -1,15 +1,18 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.contrib import messages
+from django.views.generic import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import generic, View
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, RecipeForm, CommentForm
-from .models import Recipe
+from .models import Recipe, CustomUser
 
 
 class RecipeLike(View):
-    
+
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
 
@@ -67,7 +70,9 @@ class RecipeDetail(View):
             comment.author = request.user
             comment.post = recipe
             comment.save()
+            messages.success(request, 'Your comment has been added successfully. It just needs to be authorised')
         else:
+            messages.error(request, 'There was an error adding your comment. Please try again.')
             comment_form = CommentForm()
 
         return render(
@@ -93,6 +98,31 @@ class AddRecipeView(CreateView):
         form.instance.author = self.request.user
         form.instance.slug = form.instance.title.lower().replace(' ', '-')
         return super().form_valid(form)
+
+
+class EditRecipeView(LoginRequiredMixin, UpdateView):
+    model = Recipe
+    form_class = RecipeForm
+    template_name = 'edit_recipe.html'
+    success_url = reverse_lazy('home')
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(author=self.request.user)
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class DeleteRecipeView(LoginRequiredMixin, DeleteView):
+    model = Recipe
+    template_name = 'delete_recipe.html'
+    success_url = reverse_lazy('home')
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(author=self.request.user)
 
 
 class SignUpView(CreateView):

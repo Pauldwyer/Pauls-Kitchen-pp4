@@ -46,6 +46,12 @@
                     </div>
                 </div>
             </div>
+            <!--Recipe Description-->
+            <div class="my-4">
+                <h2>Description:</h2>
+                <p>{{ recipe.description|safe }}</p>
+            </div>
+            <div class="heavy-line"></div>
             <!-- ingredients and preperation steps -->
             <div class="my-4">
                 <h2>Ingredients:</h2>
@@ -85,10 +91,15 @@
                     <button type="submit" class="btn btn-dark">Submit</button>
                 </form>
             </div>
+            {% else %}
+            <div class="my-4">
+                <h4>Do you want to leave a comment?</h4>
+                <a class="btn btn-dark" href="{% url 'account_login' %}">Login to Comment</a>
+                <a class="btn btn-danger" href="{% url 'account_signup' %}">Register if you havent already</a>
+            </div>
             {% endif %}
             {% endif %}
         </div>
-        
     </div>
 </div>
 

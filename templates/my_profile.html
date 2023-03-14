@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}MY Profile{% endblock %}
+{% block title %}My Profile{% endblock %}
 
 {% block content %}
 <!-- All recipes a user has posted -->
@@ -48,7 +48,7 @@
       <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
       {% endif %}
       <div class="card-body">
-        <h5 class="card-title">{{ recipe.title }}</h5>
+        <h5 class="card-title">{{ recipe.title|title }}</h5>
         <p class="card-text">{{ recipe.description|safe }}</p>
         <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-dark">View Recipe</a>
       </div>

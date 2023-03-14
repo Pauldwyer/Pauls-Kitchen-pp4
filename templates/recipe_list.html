@@ -14,8 +14,8 @@
           <div class="card md-4">
             <div class="card-body">
               <div class="image-container">
+                <!--Adds placeholder if recipe has no image-->
                 {% if "placeholder" in recipe.image.url %}
-                <!--DONT FORGET TO CHANGE PLACEHOLDER-->
                 <img src="https://res.cloudinary.com/dwswn1jvq/image/upload/v1678748313/woman-gdc13bac57_640_mqqfjq.png" alt="placeholder" class="card-img-top">
                 {% else %}
                 <img src="{{ recipe.image.url }}" alt="recipe image" class="card-img-top">

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Edit Recipe{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -7,8 +9,8 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a href="{% url 'recipe_detail' slug=recipe.slug %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-btn-dark">Update</button>
+            <a href="{% url 'recipe_detail' slug=recipe.slug %}" class="btn btn-danger">Cancel</a>
         </form>
     </div>
 </div>

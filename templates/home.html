@@ -8,8 +8,16 @@
   <div class="hero-text">
     <h1>Welcome to Paul's Kitchen</h1>
     <p>Here you will find a place to find, post and comment on recipes</p>
-    <p>So login or Sign Up if you havent already</p>
+    {% if user.is_authenticated %}
+      <p><a class="nav-link btn btn-secondary" href="{% url 'my_profile' %}">My Profile</a></p>
+    {% else %}
+      <p>
+        <a class="nav-link btn btn-secondary" href="{% url 'account_login' %}">Login</a> 
+        or 
+        <a class="nav-link btn btn-secondary" href="{% url 'account_signup' %}">Register</a>
+      </p>
+    {% endif %}
   </div>
 </div>
-
 {% endblock %}
+

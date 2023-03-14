@@ -1,5 +1,17 @@
+/*---------Generic CSS --------------*/
+
 body {
     background-color: #F9FAFC;
+}
+
+.heavy-line {
+    border-bottom: 4px solid black;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 /* -------- HERO IMAGE AND TEXT ---------- */

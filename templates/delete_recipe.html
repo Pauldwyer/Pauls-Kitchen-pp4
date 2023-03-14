@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% block title %}Delete Recipe{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
   <h2>Delete Recipe</h2>
-  <p>Are you sure you want to delete "{{ recipe.title }}"?</p>
+  <p>Are you sure you want to delete "{{ recipe.title|title }}"?</p>
   <form method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete</button>

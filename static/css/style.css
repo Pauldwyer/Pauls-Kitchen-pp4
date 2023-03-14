@@ -39,14 +39,14 @@ a {
 
 /* -------- HERO IMAGE AND TEXT ---------- */
 .hero-image {
-    background-image: url("https://res.cloudinary.com/dwswn1jvq/image/upload/v1678395846/Duncannon%20Yoga%20Club/table-gdc2b72d63_1280_eing47.png");
-    height: 70vh;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://res.cloudinary.com/dwswn1jvq/image/upload/v1678809928/cook-g4eafe64a7_1920_zzakjh.png");
+    height: 83vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-  }
-
+    
+}
+  
 .hero-text {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
@@ -56,7 +56,34 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-  }
+}
+
+.hero-text p {
+    margin: 0;
+}
+
+.hero-text .btn {
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+  
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+  
+.hero-text p:first-of-type {
+    font-style: italic;
+    line-height: 1.5;
+}
+  
+.hero-text a {
+    margin-right: 20px;
+}
 
 /* -------- Nav Bar ---------- */
 
@@ -78,7 +105,7 @@ a {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #131314;
 }
 
 .main-bg {

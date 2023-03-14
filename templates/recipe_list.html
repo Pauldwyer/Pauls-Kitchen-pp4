@@ -4,22 +4,9 @@
 
 {% block content %}
 
-<!--
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a> |
-  <a href="{% url 'signup' %}">Sign Up</a>
-{% endif %}
--->
-
 <div class="container-fluid">
   <div class="row">
-
-
-    <!-- Recipe Entries Column -->
+    <!-- List of Recipes -->
     <div class="col-12 mt-3 left">
       <div class="row">
         {% for recipe in recipe_list %}
@@ -29,7 +16,7 @@
               <div class="image-container">
                 {% if "placeholder" in recipe.image.url %}
                 <!--DONT FORGET TO CHANGE PLACEHOLDER-->
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="placeholder" class="card-img-top">
+                <img src="https://res.cloudinary.com/dwswn1jvq/image/upload/v1678748313/woman-gdc13bac57_640_mqqfjq.png" alt="placeholder" class="card-img-top">
                 {% else %}
                 <img src="{{ recipe.image.url }}" alt="recipe image" class="card-img-top">
                 {% endif %}

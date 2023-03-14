@@ -26,6 +26,7 @@
               </div>
               <a href="{% url 'recipe_detail' recipe.slug %}" class="recipe-link">
                 <h2 class="card-title"> {{ recipe.title }}</h2>
+                <p>{{ recipe.description|safe }}</p>
               </a>
               <hr />
               <p class="card-texttext-muted h6">{{ recipe.published_on }}</p>

@@ -99,9 +99,10 @@ a {
 }
 
 /* -------- Footer ---------- */
-.footer {
-    color: #3a3a3a;
-  }
+
+.footer a {
+    color: white;
+}
 
   
 .light-bg {

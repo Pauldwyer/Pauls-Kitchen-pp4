@@ -1,51 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>My Profile</h2>
-  <h3>My Recipes</h3>
-  
-  {% if posted_recipes %}
-    <h4>Posted Recipes</h4>
-    <div class="row">
-      {% for recipe in posted_recipes %}
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card mb-3">
-            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ recipe.title }}</h5>
-              <p class="card-text">{{ recipe.description|safe }}</p>
-              <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-dark">View Recipe</a>
-            </div>
-          </div>
-        </div>
-      {% empty %}
-        <p>You haven't posted any recipes yet.</p>
-      {% endfor %}
+<!-- All recipes a user has posted -->
+<h1 class="text-center">{{ request.user.username|capfirst }}'s Profile <i class="fa-sharp fa-solid fa-user"></i></h1>
+{% if posted_recipes %}
+<div class="container">
+  <h4 class="text-center">Recipes {{ request.user.username|capfirst }} Posted <i class="fa-solid fa-envelopes-bulk"></i></h4>
+</div>
+<div class="row">
+  {% for recipe in posted_recipes %}
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card mb-3">
+      {% if "placeholder" in recipe.image.url %}
+      <img src="https://res.cloudinary.com/dwswn1jvq/image/upload/v1678748313/woman-gdc13bac57_640_mqqfjq.png"
+        alt="placeholder" class="card-img-top">
+      {% else %}
+      <img src="{{ recipe.image.url }}" alt="recipe image" class="card-img-top">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.title }}</h5>
+        <p class="card-text">{{ recipe.description|safe }}</p>
+        <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-dark">View Recipe</a>
+      </div>
     </div>
-  {% endif %}
+  </div>
+  {% empty %}
+  <p>You haven't posted any recipes yet.</p>
+  {% endfor %}
+</div>
+{% endif %}
 
-  {% if liked_recipes %}
-    <h4>Liked Recipes</h4>
-    <div class="row">
-      {% for recipe in liked_recipes %}
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="card mb-3">
-            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ recipe.title }}</h5>
-              <p class="card-text">{{ recipe.description|safe }}</p>
-              <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-dark">View Recipe</a>
-            </div>
-          </div>
-        </div>
-      {% empty %}
-        <p>You haven't liked any recipes yet.</p>
-      {% endfor %}
+<!-- All Recipes a user has liked -->
+{% if liked_recipes %}
+<div class="container">
+  <h4 class="text-center">Recipes {{ request.user.username|capfirst }} Liked <i class="fa-sharp fa-solid fa-heart"></i></h4>
+</div>
+<div class="row">
+  {% for recipe in liked_recipes %}
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card mb-3">
+      <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.title }}</h5>
+        <p class="card-text">{{ recipe.description|safe }}</p>
+        <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-dark">View Recipe</a>
+      </div>
     </div>
-  {% endif %}
+  </div>
+  {% empty %}
+  <p>You haven't liked any recipes yet.</p>
+  {% endfor %}
+</div>
+{% endif %}
 
-  {% if not authored_recipes and not liked_recipes %}
-    <p>You haven't posted or liked any recipes yet.</p>
-  {% endif %}
+{% if not authored_recipes and not liked_recipes %}
+<h3 class="text-center">You haven't posted or liked any recipes yet.</h3>
+<h3 class="text-center">Get active !</h3>
+{% endif %}
 {% endblock %}
 

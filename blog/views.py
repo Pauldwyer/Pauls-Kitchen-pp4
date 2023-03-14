@@ -113,7 +113,12 @@ class EditRecipeView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, "Recipe Updated Successfully")
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Please correct the errors below.")
+        return super().form_invalid(form)
 
 
 class DeleteRecipeView(LoginRequiredMixin, DeleteView):
@@ -124,6 +129,10 @@ class DeleteRecipeView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.filter(author=self.request.user)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "Recipe Deleted Successfully")
+        return super().delete(request, *args, **kwargs)
 
 
 class SignUpView(CreateView):

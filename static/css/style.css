@@ -2,6 +2,7 @@
 
 body {
     background-color: #F9FAFC;
+    overflow-x: hidden;
 }
 
 .heavy-line {
@@ -12,6 +13,23 @@ body {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+}
+
+.card {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+  
+.card-img-top {
+    margin-bottom: 10px;
+}
+  
+.row {
+    margin: 0 -10px;
+}
+
+.container {
+    margin-top: 30px;
 }
 
 /* -------- HERO IMAGE AND TEXT ---------- */
@@ -35,7 +53,7 @@ body {
     color: white;
   }
 
-/* -------- NAV BAR ---------- */
+/* -------- Nav Bar ---------- */
 
 .brand {
     font-family: Lato, sans-serif;
@@ -44,7 +62,7 @@ body {
     color: #4A4A4F;
 }
 
-/* -------- FOOTER ---------- */
+/* -------- Footer ---------- */
 .footer {
     color: #3a3a3a;
   }
@@ -62,10 +80,6 @@ body {
     background-color: #F9FAFC;
 }
 
-.container {
-    margin-top: 50px;
-}
-
 .form-group {
     display: flex;
     flex-direction: column;
@@ -76,9 +90,24 @@ body {
 .form-group label {
     text-align: center;
 }
-  
+
+/* -------- Media Queries ---------- */
+
+@media screen and (min-width: 992px) {
+    .row {
+        margin: 0 -30px;
+    }
+}
+
 @media (max-width: 768px) {
     .col-md-8 {
       margin: 0 auto;
     }
-  }
+}
+
+@media screen and (min-width: 576px) {
+    .row {
+        margin: 0 -15px;
+    }
+}
+

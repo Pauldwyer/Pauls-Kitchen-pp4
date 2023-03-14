@@ -21,14 +21,16 @@
                 <img src="{{ recipe.image.url }}" alt="recipe image" class="card-img-top">
                 {% endif %}
                 <div class="image-flash">
-                  <p class="author">Author: {{ recipe.author }}</p>
+                  <p class="author">Author: {{ recipe.author|title }}</p>
                 </div>
               </div>
               <a href="{% url 'recipe_detail' recipe.slug %}" class="recipe-link">
-                <h2 class="card-title"> {{ recipe.title }}</h2>
+                <h2 class="card-title"> {{ recipe.title|title }}</h2>
                 <p>{{ recipe.description|safe }}</p>
+                <p class="card-text"><i class="fa-sharp fa-solid fa-heart"></i> {{ recipe.likes.count }} <i
+                    class="fa-solid fa-comment"></i> {{ recipe.comments.count }}</p>
               </a>
-              <hr />
+              <hr/>
               <p class="card-texttext-muted h6">{{ recipe.published_on }}</p>
             </div>
           </div>

@@ -1,4 +1,5 @@
 from django import forms
+from django_summernote.widgets import SummernoteWidget
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser, Recipe, Comment
 
@@ -21,6 +22,11 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ['title', 'description', 'ingredients', 'preparation_steps', 'image']
+        widgets = {
+            'description': SummernoteWidget(),
+            'ingredients': SummernoteWidget(),
+            'preparation_steps': SummernoteWidget(),
+        }
 
 
 class CommentForm(forms.ModelForm):
@@ -34,4 +40,3 @@ class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['body'].label = ''
-

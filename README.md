@@ -1,8 +1,16 @@
-# Pauls Kitchen
+# Pauls Kitchen - Introduction
 
-Pauls Kitchen is a food blog where users can post, like and comment on recipes.
+Personal project 4 for Code Institue Full-Stack Development program. This project is a Full Stack website built using the Django Framework. 
 
-Goal is to create a functioning and responsive website.
+Pauls Kitchen is a blog style website where users can look at the recipes that were posted on the site. 
+Users can create an account and post recipes that they would like to share. 
+Users can comment on recipes and also like recipes that they like. Users have a profile page that shows all the recipes that a user has posted and liked.
+
+## Scope
+
+The scope of this project was to build a Full-Stack site based on business logic used to control a centrally-owned dataset. Set up an authentication mechanism and provide role-based access to the site's data or other activities based on the dataset
+
+## Features
 
 ## UX
 
@@ -15,8 +23,6 @@ Goal is to create a functioning and responsive website.
 #### Database Schema
 
 #### Wireframes
-
-## Features
 
 ## Frameworks, Languages, Libaries and Programmes used 
 

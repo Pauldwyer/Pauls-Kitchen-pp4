@@ -16,7 +16,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100"> 
   <!--Nav Bar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}"><h2>Pauls Kitchen</h2></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -32,6 +32,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'my_profile' %}">{{ request.user.username|title }} Profile</a>
+                </li>
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
@@ -45,9 +48,6 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'add_recipe' %}">Post Recipe</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'my_profile' %}">{{ request.user.username|title }} Profile</a>
                 </li>
             </ul>
         </div>

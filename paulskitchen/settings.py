@@ -33,6 +33,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['pauls-kitchen.herokuapp.com', 'localhost']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 # Application definition
 
@@ -166,7 +168,11 @@ AUTH_USER_MODEL = 'blog.CustomUser'
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
+# Customises Summernote window to show only basic tools
+# Height and width help responsiveness
 SUMMERNOTE_CONFIG = {
+    'height': '480',
+    'width': '100%',
     'toolbar': [
             ['font', ['bold', 'underline', 'italic', 'clear']],
             ['para', ['ul', 'ol']],

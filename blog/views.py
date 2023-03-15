@@ -89,11 +89,11 @@ class RecipeDetail(View):
         )
 
 
-class AddRecipeView(CreateView):
+class AddRecipeView(LoginRequiredMixin, CreateView):
     model = Recipe
     form_class = RecipeForm
     template_name = 'add_recipe.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('recipe_list')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -105,7 +105,7 @@ class EditRecipeView(LoginRequiredMixin, UpdateView):
     model = Recipe
     form_class = RecipeForm
     template_name = 'edit_recipe.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('recipe_list')
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -124,7 +124,7 @@ class EditRecipeView(LoginRequiredMixin, UpdateView):
 class DeleteRecipeView(LoginRequiredMixin, DeleteView):
     model = Recipe
     template_name = 'delete_recipe.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('recipe_list')
 
     def get_queryset(self):
         queryset = super().get_queryset()

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -14,7 +14,7 @@
         <div class="card-body">
           <h3 class="card-title">{% trans "Sign In" %}</h3>
           <p class="card-text">{% blocktrans %}If you have not created an account yet, then please <a
-              href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+              href="{{ signup_url }}"><strong><em>Sign Up</em></strong></a> first.{% endblocktrans %}</p>
           <form class="login" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form.as_p }}

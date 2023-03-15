@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Edit Recipe{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <h2>Edit Recipe</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-btn-dark">Update</button>
-            <a href="{% url 'recipe_detail' slug=recipe.slug %}" class="btn btn-danger">Cancel</a>
-        </form>
+        <div class="col-sm-12 col-md-8">
+            <h2>Edit Recipe</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-dark">Update</button>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'recipe_detail' slug=recipe.slug %}" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -12,6 +12,15 @@ The scope of this project was to build a Full-Stack site based on business logic
 
 ## Features
 
+In this section i will talk about Existing Features and Future Features planned.
+
+### Existing Features
+
+#### Home Page
+
+- Greeted with a Nav Bar, Hero Image and a Footer
+- 
+
 ## UX
 
 ### Project Goals
@@ -36,6 +45,10 @@ Hero-Image I choose a laptop in a kitchen. I thought it works well with the them
 ## Frameworks, Languages, Libaries and Programmes used 
 
 # Testing
+
+## Bugs
+
+
 
 # Deployment
 

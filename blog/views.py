@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib import messages
+from django.utils.text import slugify
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -97,7 +98,7 @@ class AddRecipeView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        form.instance.slug = form.instance.title.lower().replace(' ', '-')
+        form.instance.slug = slugify(form.instance.title)
         return super().form_valid(form)
 
 

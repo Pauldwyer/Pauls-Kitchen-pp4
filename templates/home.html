@@ -9,14 +9,15 @@
     <h1>Welcome to Paul's Kitchen</h1>
     <p>Here you will find a place to find, post and comment on recipes</p>
     {% if user.is_authenticated %}
-      <p><a class="nav-link btn btn-secondary" href="{% url 'my_profile' %}">{{ request.user.username|title }} Profile</a></p>
-      <p><a class="nav-link btn btn-secondary" href="{% url 'add_recipe' %}">Post a Recipe</a></p>
+    <p><a class="nav-link btn btn-secondary" href="{% url 'my_profile' %}">{{ request.user.username|title }} Profile</a>
+    </p>
+    <p><a class="nav-link btn btn-secondary" href="{% url 'add_recipe' %}">Post a Recipe</a></p>
     {% else %}
-      <p>
-        <a class="nav-link btn btn-secondary" href="{% url 'account_login' %}">Login</a> 
-        or 
-        <a class="nav-link btn btn-secondary" href="{% url 'account_signup' %}">Register</a>
-      </p>
+    <p>
+      <a class="nav-link btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+      or
+      <a class="nav-link btn btn-secondary" href="{% url 'signup' %}">Register</a>
+    </p>
     {% endif %}
   </div>
 </div>

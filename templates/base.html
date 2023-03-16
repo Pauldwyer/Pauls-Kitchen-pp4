@@ -2,71 +2,77 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>{% block title %}Pauls Kitchen{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--Google Fonts-->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rowdies:wght@300&display=swap"
+    rel="stylesheet">
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <!--CSS-->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="d-flex flex-column min-vh-100"> 
+
+<body class="d-flex flex-column min-vh-100">
   <!--Nav Bar-->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}"><h2>Pauls Kitchen</h2></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'my_profile' %}">{{ request.user.username|title }} Profile</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'signup' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                </li>
-                {% endif %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'recipe_list' %}">All Recipes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'add_recipe' %}">Post Recipe</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <h2>Pauls Kitchen</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'my_profile' %}">{{ request.user.username|title }} Profile</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'recipe_list' %}">All Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add_recipe' %}">Post Recipe</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
-<!--Messages-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      {% for message in messages %}
+  </nav>
+  <!--Messages-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
           {{message | safe }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
           </button>
         </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
   </div>
-</div>
   <main>
     {% block content %}
     {% endblock %}
@@ -74,14 +80,17 @@
 </body>
 <footer class="footer mt-auto py-3 dark-bg">
   <p class="m-0 text-center text-white">This website was built for academic purposes
-  <a href="https://github.com" target="_blank" rel="noopener" aria-label="Visit developers github, opens in new tab">by
-    Paul Dwyer <i class="fa-brands fa-github"></i></a></p>
+    <a href="https://github.com" target="_blank" rel="noopener"
+      aria-label="Visit developers github, opens in new tab">by
+      Paul Dwyer <i class="fa-brands fa-github"></i></a></p>
 </footer>
 <script>
-  setTimeout(function(){
+  setTimeout(function () {
     let messages = document.getElementById("msg");
-    let alert = new bootstrap.Alert(messages);
-    alert.close();
+    if (messages) {
+      let alert = new bootstrap.Alert(messages);
+      alert.close();
+    }
   }, 3000)
 </script>
 <!--Bootstrap-->
@@ -90,4 +99,5 @@
 </script>
 <!--Font Awesome-->
 <script src="https://kit.fontawesome.com/a8f439a63c.js" crossorigin="anonymous"></script>
+
 </html>

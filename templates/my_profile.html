@@ -7,7 +7,7 @@
 <h1 class="text-center">{{ request.user.username|title }}'s Profile <i class="fa-sharp fa-solid fa-user"></i></h1>
 {% if posted_recipes %}
 <div class="container">
-  <h4 class="text-center">Recipes {{ request.user.username|title }} Posted <i class="fa-solid fa-envelopes-bulk"></i></h4>
+  <h4 class="text-center">Recipes {{ request.user.username|title }} has Posted <i class="fa-solid fa-envelope"></i></h4>
 </div>
 <div class="row">
   {% for recipe in posted_recipes %}
@@ -15,9 +15,9 @@
     <div class="card mb-3">
       {% if "placeholder" in recipe.image.url %}
       <img src="https://res.cloudinary.com/dwswn1jvq/image/upload/v1678748313/woman-gdc13bac57_640_mqqfjq.png"
-        alt="placeholder" class="card-img-top">
+        alt="placeholder" class="card-img-top img-top">
       {% else %}
-      <img src="{{ recipe.image.url }}" alt="recipe image" class="card-img-top">
+      <img src="{{ recipe.image.url }}" alt="recipe image" class="card-img-top img-fit">
       {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{ recipe.title|title }}</h5>
@@ -35,7 +35,7 @@
 <!-- All Recipes a user has liked -->
 {% if liked_recipes %}
 <div class="container">
-  <h4 class="text-center">Recipes {{ request.user.username|title }} Liked <i class="fa-sharp fa-solid fa-heart"></i></h4>
+  <h4 class="text-center">{{ request.user.username|title }} Like's <i class="fa-sharp fa-solid fa-heart"></i></h4>
 </div>
 <div class="row">
   {% for recipe in liked_recipes %}
@@ -60,6 +60,7 @@
 </div>
 {% endif %}
 
+<!--If User has no posts or likes -->
 {% if not authored_recipes and not liked_recipes %}
 <h3 class="text-center">You haven't posted or liked any recipes yet.</h3>
 <h3 class="text-center">Get active !</h3>

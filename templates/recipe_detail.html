@@ -20,7 +20,7 @@
             <!--Holds like and comment counter + edit, like and delete buttons -->
             <div class="card my-4">
                 <div class="card-body">
-                    <h5 class="card-title">Recipe Details</h5>
+                    <h3 class="card-title">Recipe Details</h3>
                     <p class="card-text"><strong>Number of Likes:</strong> {{ recipe.likes.count }}</p>
                     <p class="card-text"><strong>Number of Comments:</strong> {{ recipe.comments.count }}</p>
                     <div class="button-group">
@@ -95,7 +95,7 @@
             <div class="my-4">
                 <h4>Do you want to leave a comment?</h4>
                 <a class="btn btn-dark" href="{% url 'account_login' %}">Login to Comment</a>
-                <a class="btn btn-danger" href="{% url 'account_signup' %}">Register if you havent already</a>
+                <a class="btn btn-danger" href="{% url 'signup' %}">Register if you havent already</a>
             </div>
             {% endif %}
             {% endif %}

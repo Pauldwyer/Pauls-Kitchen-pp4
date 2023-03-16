@@ -20,6 +20,15 @@ The scope of this project was to build a Full-Stack site based on business logic
 
 ### Design
 
+For the desgin i leaned into the name of the site. Paul's Kitchen. Paul's Kitchen so essentially my kitchen. I wanted to make it an extenstion of myself.
+
+So thats why i kept the design mininal. Black font against white background. As if the recipes are written on a type of white board with black marker.
+
+Black footer with white writing for contrast against the body.
+
+Hero-Image I choose a laptop in a kitchen. I thought it works well with the theme.
+
+
 #### Database Schema
 
 #### Wireframes

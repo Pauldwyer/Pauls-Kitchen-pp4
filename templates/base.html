@@ -6,7 +6,7 @@
 <head>
   <title>{% block title %}Pauls Kitchen{% endblock %}</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description"
         content="Paul's Kitchen is for people who want a place to post recipes, like and comment on recipes">
     <meta name="keywords" content="cooking, recipes, food, kitchen">
@@ -80,13 +80,14 @@
     {% block content %}
     {% endblock %}
   </main>
+
+  <footer class="footer mt-auto py-3 dark-bg">
+    <p class="m-0 text-center text-white">This website was built for academic purposes
+      <a href="https://github.com/Pauldwyer" target="_blank" rel="noopener"
+        aria-label="Visit developers github, opens in new tab">by
+        Paul Dwyer <i class="fa-brands fa-github"></i></a></p>
+  </footer>
 </body>
-<footer class="footer mt-auto py-3 dark-bg">
-  <p class="m-0 text-center text-white">This website was built for academic purposes
-    <a href="https://github.com/Pauldwyer" target="_blank" rel="noopener"
-      aria-label="Visit developers github, opens in new tab">by
-      Paul Dwyer <i class="fa-brands fa-github"></i></a></p>
-</footer>
 <script>
   setTimeout(function () {
     let messages = document.getElementById("msg");

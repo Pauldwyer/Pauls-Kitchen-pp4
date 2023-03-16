@@ -112,6 +112,14 @@ a {
     background-color: #eee;
 }
 
+/*--------- Recipe images ------ */
+
+.img-fit {
+    object-fit: cover;
+    max-height: 400px;
+    object-position: 50% 50%;
+}
+
 /* -------- Footer ---------- */
 
 .footer a {

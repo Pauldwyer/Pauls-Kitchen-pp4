@@ -9,8 +9,6 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-lg-8">
-            <h1 class="mb-4">{{ recipe.title|title }}</h1>
-            <p class="text-muted">{{ recipe.author|title }} | <em>{{ recipe.published_on }}</em></p>
             {% if "placeholder" in recipe.image.url %}
             <img src="https://res.cloudinary.com/dwswn1jvq/image/upload/v1678748313/woman-gdc13bac57_640_mqqfjq.png"
                 alt="placeholder" class="card-img-top">
@@ -20,9 +18,10 @@
             <!--Holds like and comment counter + edit, like and delete buttons -->
             <div class="card my-4">
                 <div class="card-body">
-                    <h3 class="card-title">Recipe Details</h3>
-                    <p class="card-text"><strong>Number of Likes:</strong> {{ recipe.likes.count }}</p>
-                    <p class="card-text"><strong>Number of Comments:</strong> {{ recipe.comments.count }}</p>
+                    <h1 class="mb-4">{{ recipe.title|title }}</h1>
+                    <p class="card-title">{{ recipe.author|title }} | <em>{{ recipe.published_on }}</em></p>
+                    <p class="card-text"><i class="fa-sharp fa-solid fa-heart"></i> {{ recipe.likes.count }} <i
+                        class="fa-solid fa-comment"></i> {{ recipe.comments.count }}</p>
                     <div class="button-group">
                         {% if request.user == recipe.author %}
                         <a href="{% url 'edit_recipe' recipe.slug %}" class="btn btn-dark">Edit</a>
@@ -95,7 +94,7 @@
             <div class="my-4">
                 <h4>Do you want to leave a comment?</h4>
                 <a class="btn btn-dark" href="{% url 'account_login' %}">Login to Comment</a>
-                <a class="btn btn-danger" href="{% url 'signup' %}">Register if you havent already</a>
+                <a class="btn btn-danger" href="{% url 'signup' %}">Signup if you havent already</a>
             </div>
             {% endif %}
             {% endif %}

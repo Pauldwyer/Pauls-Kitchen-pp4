@@ -88,9 +88,27 @@ In this section i will talk about Existing Features and Future Features planned.
 ![Recipe Details Comment Aprov](assets/images/features/recipe_details_comment_appr.png)
 ![Recipe Details Login](assets/images/features/recipe_details_login.png)
 
-## UX
+#### Profile Page
 
-### User Stories
+- Link to the profile page as is visible to logged in users. It is on the nav bard and landing page.
+- In the profile page users will find all the recipes they post paginated in a rows.
+- They will also find all the recipes they like paginated in rows.
+- If they user has no posts and hasnt liked any recipes they will get a message saying they havent posted or liked any rcipes.
+
+![Profile page](assets/images/features/profile_likes_posts.png)
+![Profile page no likes or posts](assets/images/features/profileno_likes_posts.png)
+
+### Future Features
+
+- Search bar to search for recipes on the site
+- Use an API with an external recipe site
+- Most liked recipes section / Most Popular
+- Sections / Types / Categories - example hot and spicy food
+- Add pages to recipe lists
+- Expand on the profile page. 
+- Notifications in profile for other users comments and likes on your recipes
+
+## UX
 
 ## Design
 
@@ -103,7 +121,9 @@ Black footer with white writing for contrast against the body.
 Font for headings i went with [Permenant Marker](https://fonts.google.com/specimen/Permanent+Marker?query=Marker)
 Font for all other text i used [Rowdies](https://fonts.google.com/specimen/Rowdies?query=rowdies)
 
-Hero-Image I choose a laptop in a kitchen. I thought it works well with the theme.
+Hero-Image I choose a laptop in a kitchen. I think it works well with the theme.
+
+### User Stories
 
 
 ## Database Schema
@@ -146,10 +166,19 @@ Hero-Image I choose a laptop in a kitchen. I thought it works well with the them
 
 # Testing
 
-
 For all testing refer to [Testing.md](testing.md) 
 
 ## Bugs
+
+- When deploying to heroku i turned Debug to false. when trying to deploy the build wouldnt finish.
+    I looked after searching on stack overflow i discovered development = os.environ.get('DEVELOPMENT', False)
+    This solved the bug.
+
+- Oringally when a user posted a recipe if it had an apostrophe in the title it would bug out the database. 
+    To solve this I add the slugify import and form.instance.slug = slugify(form.instance.title) this fixed the bug.
+
+- HTML tags were bleeding out into rendered templates. To fix this i had to use 'safe' keywords. eg. {{ recipe.ingredients|safe }}
+
 
 
 # Deployment

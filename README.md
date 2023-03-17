@@ -8,6 +8,8 @@ Users can comment on recipes and also like recipes that they like. Users have a 
 
 The live link can be found here - https://pauls-kitchen.herokuapp.com/
 
+![AmIResponsive](assets/images/am_i_responsive.png)
+
 ## Scope
 
 The scope of this project was to build a Full-Stack site based on business logic used to control a centrally-owned dataset. Set up an authentication mechanism and provide role-based access to the site's data or other activities based on the dataset
@@ -35,8 +37,8 @@ So thats why i kept the design mininal. Black font against white background. As 
 
 Black footer with white writing for contrast against the body.
 
-Font for headings i went with Permenant Market https://fonts.google.com/specimen/Permanent+Marker?query=Marker
-Font for all other text i used Rowdies https://fonts.google.com/specimen/Rowdies?query=rowdies
+Font for headings i went with [Permenant Marker](https://fonts.google.com/specimen/Permanent+Marker?query=Marker)
+Font for all other text i used [Rowdies](https://fonts.google.com/specimen/Rowdies?query=rowdies)
 
 Hero-Image I choose a laptop in a kitchen. I thought it works well with the theme.
 
@@ -47,7 +49,37 @@ Hero-Image I choose a laptop in a kitchen. I thought it works well with the them
 
 ### Wireframes
 
-## Frameworks, Languages, Libaries and Programmes used 
+## Frameworks, Languages, Libaries and Programmes Used
+
+- [Python](https://www.python.org/downloads/release/python-3811/)
+
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+- [JavaScript](https://www.javascript.com/)
+
+- [HTML5](https://html.com/html5/)
+
+- [GitPod](https://gitpod.io/) - Site was developed using GitPod in broswer IDE.
+
+- [GitHub](https://github.com/) - Repository and version control was hosted with GitHub.
+
+- [Django](https://www.djangoproject.com/) - Site was built with Django framework
+
+- [Bootstrap](https://getbootstrap.com/) - Used to style the site and make it responsive on all devices.
+
+- [AllAuth](https://django-allauth.readthedocs.io/en/latest/) - Ued to authenticate login/logout
+
+- [Gunicorn](https://gunicorn.org/) - Python server for WSGI applications
+
+- [ElephantSQL](https://www.elephantsql.com/) - Used for database hosting
+
+- [Cloudinary](https://cloudinary.com/?&utm_campaign=1329&utm_content=instapagelogocta-selfservetest) - Used to host images
+
+- [Summernote](https://summernote.org/) - Used to style text input boxes
+
+- [Heroku](https://dashboard.heroku.com/login) - Site deployed on Heroku.
+
+- [Lucid Charts](https://www.lucidchart.com/) - Used for project planning.
 
 # Testing
 

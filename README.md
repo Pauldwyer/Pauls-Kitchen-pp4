@@ -23,7 +23,70 @@ In this section i will talk about Existing Features and Future Features planned.
 #### Home Page
 
 - Greeted with a Nav Bar, Hero Image and a Footer
-- 
+- If the user is not logged in, on the hero image will be a link to login or sign up
+- If the user is logged in, the hero image will have a link to the User's Profile page and Post a Recipe
+
+![Landing Page not signed in](assets/images/features/landing_page.png)
+![Landing Page logged in](assets/images/features/landing_page_loggedin.png)
+
+#### Nav Bar
+
+- Nav bar changes based on login status and is fully responsive
+- It has the page name and buttons for home, login/logout, signup, all recipes, profile and post a recipe
+- If user is on a small device the nav bar get a button to create a drop down menu
+
+![Nav bar logged in](assets/images/features/nav_bar_loggedin.png)
+![Nav bar logged out](assets/images/features/nav_bar_unregistered.png)
+![Nav bar on small screen](assets/images/features/mobile_nav_bar.png)
+
+#### Footer
+
+- Basic footer that says the site is for educational purposes and links the developers GitHub
+
+![Footer](assets/images/features/footer.png)
+
+#### All Recipes
+
+- All reicpes page shows all recipes posted on the site in paginated format in acscending order based on published date.
+- For each recipe in the list you see the author, title, a description, like and comment count and post date.
+
+![All Recipes](assets/images/features/all_recipes.png)
+
+#### Post A Recipe
+
+- If a unregistered or not logged in user clicks post a recipe link they will be redirected to the log in page.
+- If a logged in user clicks the link they will be brought to the form to post a recipe.
+- Each text input have a few cutomistaion options like bold, italics, unordered and ordered lists.
+- Users can upload an image at the bottom of the form.
+
+![Post Recipe](assets/images/features/post_recipe_1.png)
+![Post Recipe](assets/images/features/post_recipe_2.png)
+![Post Recipe](assets/images/features/post_recipe_3.png)
+
+#### Authentication
+
+- Sign Up page, Login and Log out pages
+
+![Log In](assets/images/features/sign_in.png)
+![Log Out](assets/images/features/sign_out.png)
+![Sign Up](assets/images/features/sign_up.png)
+
+#### Recipe Detail Page
+
+- When a user opens a recipe they are greeted with with Recipe Detail page
+- The user will see the image that was posted with the recipe
+- The user will then see recipe title, author, date posted, like and comment count and a like button.
+    - A logged in user who is looking at a recipe they posted will get the option to edit and delete their recipe.
+    - A user who isnt logged in will have a button that directs the users to the log in page.
+- Below that the user will see the recipe description, ingredients and preparation steps.
+- At the bottom of the page is the comment section where users can discuss the recipe
+- After a user posts a comment they will get a message saying the comment is awaitng approval.
+
+![Recipe Details](assets/images/features/recipe_details_1.png)
+![Recipe Details](assets/images/features/recipe_details_2.png)
+![Recipe Details Comments](assets/images/features/recipe_details_comment_section.png)
+![Recipe Details Comment Aprov](assets/images/features/recipe_details_comment_appr.png)
+![Recipe Details Login](assets/images/features/recipe_details_login.png)
 
 ## UX
 

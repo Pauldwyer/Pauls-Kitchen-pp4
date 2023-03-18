@@ -123,14 +123,53 @@ Font for all other text i used [Rowdies](https://fonts.google.com/specimen/Rowdi
 
 Hero-Image I choose a laptop in a kitchen. I think it works well with the theme.
 
+### Wire Frames
+
+![Home Page](assets/images/design/Home_page_wireframes.png)
+
+![All Recipes](assets/images/design/Recipe_list_wireframes.png)
+
 ### User Stories
 
+- Epic Admin
+    - As a Site Admin I can create, read, update and delete recipes so that manage the site content
+    - As a Site Admin I can approve or deny comments that have been left by users before they are published so that I can filter out unwanted or irrelevant comments
+
+- Epic Navigation
+    - As a User I can view a paginated list of posts so that I can easily select a post to view
+    - As a User I can easily navigate the site so that I can find recipes easily
+
+- Epic Interaction
+    - As a User I can see the most loved recipes so that I can quickly find inspiration and see which recipes are most famous
+    - As a User I can like or unlike a post so that I can interact with the content
+    - As a User I can view comments on an individual post so that I can read the conversation
+    - As a User I can view the number of likes on each post so that I can see which is the most popular or viral
+
+- Epic User Recipes
+    - As a User I can delete / edit my recipe so that I can remove or make changes to my recipes
+    - As a User I can upload an image so that other users can see what my dish looks like
+    - As a User I can post recipes so that other users can see them
+
+- Epic Login / Logout / Register
+    - As a User I can Register for an account so that I can comment, like and post recipes
+    - As a User I can login or logout off my account so that I can connect or disconnect from the site when I wish
+    - As a USer I can easily see if I am logged out so that so that I can be sure what my status is
 
 ## Database Schema
 
 ![Database](assets/images/db_schema.png)
 
-### Wireframes
+- **Custom User Model**
+
+![Custom User Model](assets/images/design/CustomUserModel.png)
+
+- **Recipe Model**
+
+![Recipe Model](assets/images/design/Recipe_Model.png)
+
+- **Comments Model**
+
+![Comments Model](assets/images/design/Comments_Model.png)
 
 ## Frameworks, Languages, Libaries and Programmes Used
 
@@ -178,6 +217,9 @@ For all testing refer to [Testing.md](testing.md)
     To solve this I add the slugify import and form.instance.slug = slugify(form.instance.title) this fixed the bug.
 
 - HTML tags were bleeding out into rendered templates. To fix this i had to use 'safe' keywords. eg. {{ recipe.ingredients|safe }}
+
+- Taking inspiration from I Think Therefore I Blog I had given all Recipes a status that was a toggle in admin panel. This caused problems down the line when a user would create a recipe. It stay on draft
+    a user wouldnt be able to toggle out of draft so logically i had to remove this feature.
 
 
 
@@ -239,4 +281,10 @@ The project was deployed on Heroku using the [Code Institue Cheat Sheet](https:/
 
 
 # Credits
+
+- [Learn Django](https://learndjango.com/tutorials/) - Extra learning about Django. Custom User Model especially
+- [Just Dango](https://justdango.com/)
+- Code Institute I think Therefore I Blog - Did this walk through 4 times to fully understand.
+- [Django Documentation](https://docs.djangoproject.com/en/4.1/intro/tutorial01/) - Everything you need
+- [stack overflow](https://stackoverflow.com/)
 

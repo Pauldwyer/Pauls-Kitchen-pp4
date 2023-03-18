@@ -48,13 +48,13 @@
             <!--Recipe Description-->
             <div class="my-4">
                 <h2>Description:</h2>
-                <p>{{ recipe.description|safe }}</p>
+                <p>{{ recipe.description|striptags|safe }}</p>
             </div>
             <div class="heavy-line"></div>
             <!-- ingredients and preperation steps -->
             <div class="my-4">
                 <h2>Ingredients:</h2>
-                <p>{{ recipe.ingredients|safe }}</p>
+                <p>{{ recipe.ingredients|striptags|safe }}</p>
             </div>
             <div class="heavy-line"></div>
             <div class="my-4">
@@ -69,7 +69,7 @@
                 <div class="mb-4">
                     <h5 class="mb-1">{{ comment.author|title }} <small
                             class="text-muted">{{ comment.created_on|date:"F d, Y" }}</small></h5>
-                    <p>{{ comment.body | linebreaks }}</p>
+                    <p>{{ comment.body|safe }}</p>
                 </div>
                 {% empty %}
                 <p>There are no comments yet.</p>

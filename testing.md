@@ -57,34 +57,79 @@ List of devices that the website was tested on for responsiveness through chrome
 || Click the "Delete Button | recipe list should open, a message displays "recipe deleted successfully" | Workign as intended
 || Naviage back to "Manual-Test-Account's Profile" page "This is a manual Test 2 " should be deleted from the site | Working as intedned
 
+## User Story Testing
+
+- Epic Admin
+    - As a Site Admin I can create, read, update and delete recipes so that manage the site content
+        - For this user story i have a admin panel that allows full CRUD Functionality.
+        - ![Admin Panel](assets/images/features/Admin_panel.png)
+    - As a Site Admin I can approve or deny comments that have been left by users before they are published so that I can filter out unwanted or irrelevant comments
+        - In the Admin panel the admin can approve and unapprove comments. No comment is posted without approval. 
+        - ![Comment Approval](assets/images/features/recipe_details_comment_appr.png)
+
+- EPIC Navigation
+    - As a User I can view a paginated list of posts so that I can easily select a post to view
+        - Recipe List and Profile pages are paginated.
+        - ![Paginated](assets/images/features/all_recipes.png)
+    - As a User I can easily navigate the site so that I can find recipes easily
+        - Nar bar always displayed allows easy navigation. All pages are in the nav bar.
+        - ![NAv Bar](assets/images/features/mobile_nav_bar.png)
+
+- EPIC Interaction
+    - As a User I can see the most loved recipes so that I can quickly find inspiration and see which recipes are most famous
+        - Not implemented
+    - As a User I can like or unlike a post so that I can interact with the content
+        - Users have the option to like recipes
+        - ![Like Button](assets/images/features/recipe_details_1.png)
+        
+    - As a User I can view comments on an individual post so that I can read the conversation
+        - Users can view how many comments per recipe on recipe list, profile page and recipe details page.
+        - ![Icon](assets/images/features/likes.png)
+        - ![Comment Section](assets/images/features/recipe_details_comment_section.png)
+
+    - As a User I can view the number of likes on each post so that I can see which is the most popular or viral
+        - Similar to comments users can see the counts of likes on recipe list, profile page and recipe details page.
+        - ![Likes](assets/images/features/likes.png)
+
+- EPIC User Interaction
+    - As a User I can delete / edit my recipe so that I can remove or make changes to my recipes
+        - Edit and delete buttons available on recipes that a user has posted.
+        - ![Edit / Delete](assets/images/features/recipe_details_1.png)
+
+    - As a User I can upload an image so that other users can see what my dish looks like
+        - At the bottom of the Post Recipe form you have an option to add an image. If you have no image a placeholder is applied
+        - ![Image](assets/images/features/post_recipe_3.png)
+
+    - As a User I can post recipes so that other users can see them
+        - There is a Post Recipe form for adding recipes to the site
+        - ![Post Recipe](assets/images/features/post_recipe_1.png)
+        - ![Post Recipe](assets/images/features/post_recipe_2.png)
+        - ![Post Recipe](assets/images/features/post_recipe_3.png)
+
+- EPIC Login / Logout / Register
+    - As a User I can Register for an account so that I can comment, like and post recipes
+        - Custom user model was created so users can sign up, comment, like and post recipes.
+        - ![Sign Up](assets/images/features/sign_up.png)
+
+    - As a User I can login or logout off my account so that I can connect or disconnect from the site when I wish
+        - Login and Logout forms are availabel for logging in and logging out
+        - ![Log In](assets/images/features/sign_in.png)
+        - ![Log Out](assets/images/features/sign_out.png)
+
+    - As a User I can easily see if I am logged out so that so that I can be sure what my status is
+        - Nav bar buttons change depending on online status. Hero-text also changes. Access to site features also change.
+        - You can access profile pages without being logged.
+        - Cant post recipes without being logged in.
+        - ![Nav Bar](assets/images/features/nav_bar_loggedin.png)
+        - ![Nav Bar](assets/images/features/nav_bar_unregistered.png)
+        - ![Home](assets/images/features/landing_page.png)
+        - ![Home](assets/images/features/landing_page_loggedin.png)
+        
+
+
 ## Validator Testing
 
-### [HTML](https://validator.w3.org/)
-
-### CI Python Linter
-
-- **Views.py**
-
-![Views](assets/images/manual_testing/views.py_linter.png)
-
-- **Models.py**
-
-![Models](assets/images/manual_testing/models.py_linter.png)
-
-- **Urls.py**
-
-![Urls](assets/images/manual_testing/urls.py_linter.png)
-
-- **Forms.py**
-
-![Forms](assets/images/manual_testing/forms.py_linter.png)
-
-- **Admin.py**
-
-![Admin](assets/images/manual_testing/admin.py_linter.png)
-
-
-## Lighthouse Testing
+### Lighthouse Testing
 
 See below Chrome Developer tools Lighthouse testing results of all pages on both mobile and desktop.
 Low scores for performance mostly because of images. I cant control what format images are uploaed in.
@@ -123,6 +168,62 @@ Low scores for performance mostly because of images. I cant control what format 
 ![Desktop](assets/images/lighthouse/logout_desk_light.png)
 ![Mobile](assets/images/lighthouse/logout_mob_light.png)
 
+### [HTML](https://validator.w3.org/)
 
-## User Story Testing
+- **Home Page**
 
+![Home Page](assets/images/validation/home-html-vali.png)
+
+- **Log In**
+
+![Log In](assets/images/validation/login_valid.png)
+
+- **Log Out**
+
+![Log Out](assets/images/validation/logout_valid.png)
+
+- **Profile**
+
+![Profile Errors ](assets/images/validation/my_profile_firstpass.png)
+![Profile Fix ](assets/images/validation/my_profile_fix_errors.png)
+
+- **Recipe Details**
+
+![Recipe Details](assets/images/validation/recipe_details_errors.png)
+
+- **Recipe List**
+
+![Recipe List Errors](assets/images/validation/recipelist_first_pass.png)
+![Recipe List](assets/images/validation/recipelist_fix_error.png)
+
+- **Sign Up**
+
+![Sign Up](assets/images/validation/sign_up_errors.png)
+
+### CSS Validation
+
+![CSS](assets/images/validation/css_validator.png)
+
+### CI Python Linter
+
+- **Views.py**
+
+![Views](assets/images/manual_testing/views.py_linter.png)
+
+- **Models.py**
+
+![Models](assets/images/manual_testing/models.py_linter.png)
+
+- **Urls.py**
+
+![Urls](assets/images/manual_testing/urls.py_linter.png)
+
+- **Forms.py**
+
+![Forms](assets/images/manual_testing/forms.py_linter.png)
+
+- **Admin.py**
+
+![Admin](assets/images/manual_testing/admin.py_linter.png)
+
+As you can see my signup form and post recipe throw up errors.

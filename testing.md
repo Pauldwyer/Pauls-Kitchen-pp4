@@ -59,8 +59,69 @@ List of devices that the website was tested on for responsiveness through chrome
 
 ## Validator Testing
 
+### [HTML](https://validator.w3.org/)
+
+### CI Python Linter
+
+- **Views.py**
+
+![Views](assets/images/manual_testing/views.py_linter.png)
+
+- **Models.py**
+
+![Models](assets/images/manual_testing/models.py_linter.png)
+
+- **Urls.py**
+
+![Urls](assets/images/manual_testing/urls.py_linter.png)
+
+- **Forms.py**
+
+![Forms](assets/images/manual_testing/forms.py_linter.png)
+
+- **Admin.py**
+
+![Admin](assets/images/manual_testing/admin.py_linter.png)
+
+
 ## Lighthouse Testing
 
+See below Chrome Developer tools Lighthouse testing results of all pages on both mobile and desktop.
+Low scores for performance mostly because of images. I cant control what format images are uploaed in.
+
+- **Home Page**
+
+![Desktop](assets/images/lighthouse/homepage_desk_light.png)
+![Mobile](assets/images/lighthouse/homepage_mob_lighthouse.png)
+
+- **Recipe List**
+
+![Desktop](assets/images/lighthouse/recipelist_desk_light.png)
+![Mobile](assets/images/lighthouse/recipelist_mob_light.png)
+
+- **Profile Page**
+
+![Desktop](assets/images/lighthouse/profile_desk_light.png)
+![Mobile](assets/images/lighthouse/profile_mobile_light.png)
+
+- **Post a Recipe**
+
+![Desktop](assets/images/lighthouse/postrecipe_desk_light.png)
+![Mobile](assets/images/lighthouse/postrecipe_mob_light.png)
+
+- **Recipe Detail**
+
+![Desktop](assets/images/lighthouse/recipedetail_desk_light.png)
+![Mobile](assets/images/lighthouse/recipelist_mob_light.png)
+
+- **Log In / Log Out / Signup**
+
+![Desktop](assets/images/lighthouse/signup_desk_light.png)
+![Mobile](assets/images/lighthouse/signup_mob_light.png)
+![Desktop](assets/images/lighthouse/login_desk_light.png)
+![Mobile](assets/images/lighthouse/login_mob_light.png)
+![Desktop](assets/images/lighthouse/logout_desk_light.png)
+![Mobile](assets/images/lighthouse/logout_mob_light.png)
 
 
 ## User Story Testing

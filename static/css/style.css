@@ -50,7 +50,7 @@ a {
 
 /* -------- HERO IMAGE AND TEXT ---------- */
 .hero-image {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://res.cloudinary.com/dwswn1jvq/image/upload/v1678809928/cook-g4eafe64a7_1920_zzakjh.png");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://res.cloudinary.com/dwswn1jvq/image/upload/c_scale,w_600/v1678809928/cook-g4eafe64a7_1920_zzakjh.png");
     height: 83vh;
     position: relative;
     background-position: center;
@@ -116,7 +116,7 @@ a {
 
 .img-fit {
     object-fit: cover;
-    max-height: 400px;
+    height: 300px;
     object-position: 50% 50%;
 }
 

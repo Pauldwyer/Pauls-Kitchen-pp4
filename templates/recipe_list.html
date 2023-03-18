@@ -16,7 +16,7 @@
               <div class="image-container">
                 <!--Adds placeholder if recipe has no image-->
                 {% if "placeholder" in recipe.image.url %}
-                <img src="https://res.cloudinary.com/dwswn1jvq/image/upload/v1678748313/woman-gdc13bac57_640_mqqfjq.png" alt="placeholder" class="card-img-top">
+                <img src="https://res.cloudinary.com/dwswn1jvq/image/upload/v1678748313/woman-gdc13bac57_640_mqqfjq.png" alt="placeholder" class="card-img-top img-fit">
                 {% else %}
                 <img src="{{ recipe.image.url }}" alt="recipe image" class="card-img-top img-fit">
                 {% endif %}
@@ -26,7 +26,7 @@
               </div>
               <a href="{% url 'recipe_detail' recipe.slug %}" class="recipe-link">
                 <h2 class="card-title"> {{ recipe.title|title }}</h2>
-                <p>{{ recipe.description|safe }}</p>
+                <p>{{ recipe.description|striptags|safe }}</p>
                 <p class="card-text"><i class="fa-sharp fa-solid fa-heart"></i> {{ recipe.likes.count }} <i
                     class="fa-solid fa-comment"></i> {{ recipe.comments.count }}</p>
               </a>

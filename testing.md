@@ -43,3 +43,17 @@ List of devices that the website was tested on for responsiveness through chrome
 |**Post Recipe with Image**| From Home Page Click Post Recipe button | Open add recipe page | Working as intended
 || Fill all fields with "This is a Manual Test 2" click choose file select a image and click submit | Recipe should be posted image selected | Working as intended
 
+### Delete / Edit a Recipe
+| Type of Test | Steps | Expected Results | Results |
+| -------------|-------|------------------|---------|
+|**Edit Recipe**| From Home Page as a logged in user Click "Manual-Test-Account's Profile" Profile Button | Opens profile page for the logged in User | Working as intended
+|| Select the Recipe to edit "Manual Test " | When recipe details page opens should be 3 options "Like" "Edit" "Delete" | Working as inteded
+|| Click the "Edit" Button | The Edit Recipe form should open | Working as intended
+|| Add to all fields "this is a edit" and submit | recipe list should open, a message displays "recipe updated successfully" | Workign as intended
+|| Go back into "Manual Test - edit" detail page and update image and then click submit | recipe list should open, a message displays "recipe updated successfully" and image should change | FAIL image didnt change
+|**Delete Recipe**| From Home Page as a logged in user Click "Manual-Test-Account's Profile" Profile Button | Opens profile page for the logged in User | Working as intended
+|| Select the Recipe to delete "This is a manual Test 2 " | When recipe details page opens should be 3 options "Like" "Edit" "Delete" | Working as inteded
+|| Click the "Delete" Button | The delete recipe page should open and user is asked are they sure they want to delete | Working as intended
+|| Click the "Delete Button | recipe list should open, a message displays "recipe deleted successfully" | Workign as intended
+|| Naviage back to "Manual-Test-Account's Profile" page "This is a manual Test 2 " should be deleted from the site | Working as intedned
+

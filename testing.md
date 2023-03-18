@@ -57,3 +57,11 @@ List of devices that the website was tested on for responsiveness through chrome
 || Click the "Delete Button | recipe list should open, a message displays "recipe deleted successfully" | Workign as intended
 || Naviage back to "Manual-Test-Account's Profile" page "This is a manual Test 2 " should be deleted from the site | Working as intedned
 
+## Validator Testing
+
+## Lighthouse Testing
+
+
+
+## User Story Testing
+
